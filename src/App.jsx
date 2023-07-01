@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Image } from "react-bootstrap";
-import "./styles/categories.scss";
+// import "./styles/categories.scss";
 
 function App() {
   const categories = [
