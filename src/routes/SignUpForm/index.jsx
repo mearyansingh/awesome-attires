@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
@@ -6,6 +6,7 @@ import {
   createAuthUserWithEmailAndPAssword,
   createUserDocumentFromAuth,
 } from "../Utils/Firebase/FirebaseUtils";
+// import { UserContext } from '../../contexts/UserContext'
 
 const defaultFormFields = {
   displayName: "",
@@ -15,11 +16,17 @@ const defaultFormFields = {
 };
 
 function SignUpForm() {
-  /**initial state */
+
+  /**Initial state */
   const [formFields, setFormFields] = useState(defaultFormFields);
+
+  /**Context used */
+  // const { setCurrentUser } = useContext(UserContext)
 
   /**Destructure form fields */
   const { displayName, email, password, confirmPassword } = formFields;
+
+  // console.log('hit')
 
   /**Reset form fields */
   const resetFormFields = () => {
@@ -46,7 +53,7 @@ function SignUpForm() {
         email,
         password
       );
-
+      // setCurrentUser(user)
       await createUserDocumentFromAuth(user, { displayName });
       resetFormFields();
     } catch (error) {
@@ -60,7 +67,7 @@ function SignUpForm() {
   return (
     <>
       <h2>You don't have account</h2>
-      <Card className="h-100">
+      <Card>
         <Card.Body>
           <h4 className="mb-3">Sign up with your email and password</h4>
           <Form onSubmit={handleSubmit}>
