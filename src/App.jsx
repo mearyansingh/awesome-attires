@@ -9,6 +9,8 @@ import WishList from "./routes/WishList";
 import Authentication from "./routes/Authentication";
 import Checkout from "./routes/Checkout";
 import Footer from "./routes/Footer";
+import Error404 from "./routes/Error404";
+
 import {
 	onAuthStateChangedListner,
 	createUserDocumentFromAuth,
@@ -32,7 +34,7 @@ function App() {
 
 	return (
 		<div className="d-flex flex-column min-vh-100">
-			<main className="flex-grow-1">
+			<main className="d-flex flex-column flex-grow-1">
 				<Routes>
 					<Route path="/" element={<Header />}>
 						<Route index element={<Home />} />
@@ -40,6 +42,7 @@ function App() {
 						<Route path="wishlist" element={<WishList />} />
 						<Route path="auth" element={<Authentication />} />
 						<Route path="checkout" element={<Checkout />} />
+						<Route path="*" element={<Error404 />} />
 					</Route>
 				</Routes>
 			</main>

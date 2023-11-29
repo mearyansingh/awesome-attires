@@ -20,7 +20,7 @@ function Header() {
 				sticky="top"
 				collapseOnSelect
 				expand="lg"
-				className="bg-body-tertiary"
+				className="bg-body-tertiary flex-shrink-0"
 			>
 				<Container className="position-relative">
 					<Navbar.Brand as={Link} to="/">
